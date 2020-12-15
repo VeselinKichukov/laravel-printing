@@ -13,6 +13,7 @@ abstract class PrintTask implements PrintTaskContract
     protected string $jobTitle = '';
     protected array $options = [];
     protected string $content = '';
+    protected string $content_type = '';
     protected string $printSource;
 
     /** @var string|mixed */
@@ -23,9 +24,10 @@ abstract class PrintTask implements PrintTaskContract
         $this->printSource = config('app.name');
     }
 
-    public function content($content): self
+    public function content($content, $content_type): self
     {
         $this->content = $content;
+        $this->content_type = $content_type;
 
         return $this;
     }
